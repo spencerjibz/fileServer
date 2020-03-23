@@ -5,7 +5,7 @@ var Server = require('../lib/server');
 var fetch = require('node-fetch');
 
 var fs = require('fs');
-
+ var execSync = require('child_process').execSync
 var os = require('os');
 
 var tmpFile = os.tmpDir() || os.tmpdir();
@@ -23,8 +23,21 @@ function fetcher(cb) {
 }
 
 describe('fileServer', function () {
-  beforeAll(function () {
-    console.log('ensure  atleast one instance of fileServer is running before you run tests else the tests will fail');
+  beforeAll(function (done) {
+  // if there is no fileserver run an instance of the fileServer
+  fetcher((err,row)=>{
+ if(err||row.length<1||row===null){
+// no instance of the fileServer running so lets run one in the create folder
+  console.warn('there is no instance of the fileServer running, ensure run one or more and then test it')
+ process.exit()
+
+
+ }
+
+done()
+
+  })
+
     jest.setTimeout(10000);
   }); // the server should started successfully
 
