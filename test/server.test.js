@@ -8,7 +8,7 @@ var fs = require('fs');
  var execSync = require('child_process').execSync
 var os = require('os');
 
-var tmpFile = os.tmpDir() || os.tmpdir();
+var tmpFile =  os.tmpDir ? os.tmpDir() : os.tmpdir()
 
 var sqlite3 = require('sqlite3').verbose();
 
