@@ -44,7 +44,7 @@ Options:
 ```
 Start fileServer and  open browser . This is the default setting
  ![](https://raw.githubusercontent.com/spencerjibz/fileServer/master/assets/startCommand.gif)
-<br>
+
 Start fileServer without opening browser
  ![](https://raw.githubusercontent.com/spencerjibz/fileServer/master/assets/NobroweserCommand.gif)
 
