@@ -46,7 +46,9 @@ Start fileServer and  open browser . This is the default setting
  ![](https://raw.githubusercontent.com/spencerjibz/fileServer/master/assets/startCommand.gif)
 
 Start fileServer without opening browser
- ![](https://raw.githubusercontent.com/spencerjibz/fileServer/master/assets/NobroweserCommand.gif)
+
+ ![](https://raw.githubusercontent.com/spencerjibz/fileServer/master/assets/NobrowserCommand.gif)
+ 
 
 2.**Kill Command**: <br>
 ``` 
@@ -59,6 +61,8 @@ Options:
  ![](https://raw.githubusercontent.com/spencerjibz/fileServer/master/assets/killCommand.gif)
 
 3.**Usage illustration**<br>
+ 
+
  ![](https://raw.githubusercontent.com/spencerjibz/fileServer/master/assets/Crd.gif)
 
  Enjoy the rest of the features
