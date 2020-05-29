@@ -10,7 +10,8 @@ var os = require('os')
 var fs = require('fs')
 // setup sqlite database 
 var db = require('../lib/db')
-
+// Path to  the sqlite fileDatabase
+var dbPath = os.tmpDir ? os.tmpDir()+'/test.db': os.tmpdir()+'/test.db'
 
 
 // main commands
@@ -20,29 +21,39 @@ program
     .alias('s')// alternative sub -command name
     .option("-d,--dirName [value]", 'The directory served')
     .option("-p,--port [value]", 'The port for server, default port is 7000')
-    .option("-N,--noBrowser [value]",'disable opening the browser, by default,this false')
+    .option("-N,--noBrowser [value]",'disable opening the browser,default is false')
     .description(' starts a file server in a given directory or current directory by default')
     .action(function (options) {
        var port = options.port===undefined?7000: parseInt(options.port);
        var dirName = options.dirName===undefined?process.cwd():options.dirName;
        var noBrowser = options.noBrowser
+
+// create a randon arbitrary between  the range (min,max)
+ function getRandomArbitrary(max, min) {
+ return Math.floor((Math.random() * (max - min) + min))
+  }
       
 // Start 
 var t
   try {
      
+   
+      t = FileServer(dirName, port, noBrowser)
       
-     t = FileServer(dirName,port,noBrowser)
+   
      // when the server is terminated, remove its details from the sqlite database
       process.on('SIGINT'||'SIGTERM', () => {
-          t.Server.close(function() {
+         
+         
               db.run('DELETE FROM servers WHERE pid =?', [t.pid], function (err) {
                   if (err) { throw err }
-                  console.log('fileServer teminated  and database cleared')
-                  db.close()
+                  console.log(this.changes + 'fileServer instance (s) teminated  and database cleared')
+           
+                  // kill process after clearing the database
+                  process.exit()
               })
               
-          })
+        
       })
       
     }
@@ -57,7 +68,7 @@ var t
     
       db.serialize(function () {
           // only create database if the db is doesn't exist and only if the database file is empty
-          if (!fs.existsSync(os.tmpdir() + '/test.db') || fs.readFileSync(os.tmpdir + '/test.db', { encoding: 'utf8' }).length===0) {
+          if (!fs.existsSync(dbPath) || fs.readFileSync(dbPath, { encoding: 'utf8' }).length===0) {
               db.run("CREATE TABLE servers(Serveraddress TEXT,dir TEXT,pid INTEGER)");
           }
 
