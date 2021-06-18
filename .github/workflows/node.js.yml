@@ -28,5 +28,5 @@ jobs:
     
     - run: npm install 
     - run: ls && dir
-    - run: node /lib/app.js start  -N true  
+    - run: node ./bin/app.js start  -N true  
     - run:  npm test 
