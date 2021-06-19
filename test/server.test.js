@@ -29,7 +29,7 @@ describe('fileServer', function () {
  if(err||row.length<1||row===null){
 // no instance of the fileServer running so lets run one in the create folder
   console.warn('there is no instance of the fileServer running, ensure run one or more and then test it')
- process.exit()
+
 
 
  }
