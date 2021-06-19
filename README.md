@@ -4,7 +4,7 @@
 A simple command line tool that initiates a static-asset http server in specified directory. Inspired by the Pythons Http module (http.server method)
  
 ### Requirements for usage
- - Nodejs  (v4 and higher) 
+ - Nodejs  (v6.x and higher) 
  - git
  - node-gyp ( maybe not be necessary). for installation of Sqlite3 binding for nodejs
 ### Installation
