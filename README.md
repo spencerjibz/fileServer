@@ -1,4 +1,6 @@
 ## FileServer 
+[![Node.js CI](https://github.com/spencerjibz/fileServer/actions/workflows/node.js.yml/badge.svg)](https://github.com/spencerjibz/fileServer/actions/workflows/node.js.yml)
+
 A simple command line tool that initiates a static-asset http server in specified directory. Inspired by the Pythons Http module (http.server method)
  
 ### Requirements for usage
