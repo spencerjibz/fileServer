@@ -5,7 +5,7 @@
   "main": "server.js",
   "preferGlobal": true,
   "scripts": {
-    "test": "jest --detectOpenHandles || true"
+    "test": "jest --detectOpenHandles"
   },
   "bin": {
     "fileServer": "./bin/app.js"
