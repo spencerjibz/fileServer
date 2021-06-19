@@ -27,6 +27,6 @@ jobs:
     
     
     - run: npm install 
-    - run: ls && dir
-    - run: node ./bin/app.js start  -N true  && npm test
+    - run: npm install -g concurrently
+    - run: concurrently  "ls" "node ./bin/app.js start -N true" "npm test"
  
