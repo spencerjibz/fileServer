@@ -28,7 +28,7 @@ jobs:
     - run: cmd
     - run: npm install 
     
-    - run: start node ./bin/app.js start -N true & npm test
+    - run: start node ./bin/app.js start -N true && npm test
  
   
  
