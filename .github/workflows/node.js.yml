@@ -28,5 +28,5 @@ jobs:
     
     - run: npm install 
     - run: npm install -g concurrently
-    - run: concurrently  "ls" "node ./bin/app.js start -N true && npm cache clean --force"   "npm test"
+    - run: concurrently  "ls" "node ./bin/app.js start -N true"  "npm test"
  
